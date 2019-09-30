@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="579c25f9-c2b8-48bf-9c23-134e9a22d9f9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     veh_insurance.`ins_no` AS veh_insurance_ins_no,
+     veh_insurance.`v_no` AS veh_insurance_v_no,
+     veh_insurance.`ins_agtname` AS veh_insurance_ins_agtname,
+     veh_insurance.`ins_company` AS veh_insurance_ins_company,
+     veh_insurance.`ins_date` AS veh_insurance_ins_date,
+     veh_insurance.`ins_expdate` AS veh_insurance_ins_expdate
+FROM
+     `veh_insurance` veh_insurance
+WHERE ins_status = 'A'
+ORDER BY veh_insurance.`ins_expdate`]]>
+	</queryString>
+	<field name="veh_insurance_ins_no" class="java.lang.String"/>
+	<field name="veh_insurance_v_no" class="java.lang.String"/>
+	<field name="veh_insurance_ins_agtname" class="java.lang.String"/>
+	<field name="veh_insurance_ins_company" class="java.lang.String"/>
+	<field name="veh_insurance_ins_date" class="java.lang.String"/>
+	<field name="veh_insurance_ins_expdate" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image>
+				<reportElement uuid="82b1f088-8f43-435b-b229-71b31fa330a7" x="725" y="0" width="77" height="102"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement uuid="2dc6b21f-eb80-4cf8-a7d2-09318f63b2e1" mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000"/>
+				<staticText>
+					<reportElement uuid="bcb4a009-bab5-496e-81c5-5dc163380fee" style="Title" x="0" y="0" width="398" height="66"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="24" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Jayaratna Movers and Transport Ltd. Nugegoda.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="e8551868-b1f0-4219-ac29-bf8e7611a525" style="SubTitle" x="398" y="37" width="316" height="29"/>
+					<textElement textAlignment="Right">
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Vehicle Insurance Detail Report]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement uuid="ae7d86be-e316-4e0c-966f-fa361f56673e" mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="441ba345-8ec5-4563-9f47-ff49930892b2" x="570" y="12" width="144" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64bab41f-644a-408f-bf88-132a3c917fd7" style="Column header" x="113" y="0" width="107" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Insurance No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d7e8f32c-d307-445e-b2ab-05d1f70b9ff7" style="Column header" x="2" y="0" width="111" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Vehicle Reg No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad5b3e5e-722b-4a3f-ae27-65f7d0c71b5f" style="Column header" x="220" y="0" width="132" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Insure Agent Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ebf4e5fe-b7b8-4abb-90dc-5548659c5cc7" style="Column header" x="370" y="0" width="132" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Insurance Company]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="49986ec4-3d40-4333-a5c6-83561d9d4d94" style="Column header" x="528" y="0" width="132" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Insured Start Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f90e2775-e2b3-4d8a-9544-aedb54aa6198" style="Column header" x="660" y="0" width="132" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Insurance Expire Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement uuid="981c03c3-790e-4c9e-a11d-13c4f1959dc2" style="Row" mode="Opaque" x="0" y="0" width="797" height="18"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="36c892a6-49d3-4b0d-8840-cc0a9bff4e6e" style="Detail" positionType="Float" x="220" y="0" width="123" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{veh_insurance_ins_no}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="4fecdbf5-005a-4ece-ba80-47da0eb1f662" style="Detail" positionType="Float" x="2" y="0" width="111" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{veh_insurance_v_no}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="620df424-974c-463a-b1f0-5c6405751707" style="Detail" positionType="Float" x="113" y="0" width="107" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{veh_insurance_ins_agtname}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="11700fc4-bdd6-452a-b86e-b963db2947d1" style="Detail" positionType="Float" x="370" y="0" width="132" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{veh_insurance_ins_company}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="04da20c4-f796-4e54-82e4-be47f95a6956" style="Detail" positionType="Float" x="528" y="0" width="132" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{veh_insurance_ins_date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="18183fc4-ae3f-4c7d-a855-e4f8dd98f4a0" style="Detail" positionType="Float" x="660" y="0" width="132" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{veh_insurance_ins_expdate}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement uuid="561eef6b-578e-4a6d-b7b3-b6645c65989c" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="e4781cf1-e2b2-4d21-a26b-67e665c2374f" mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="a4b54c9a-3cf0-4921-a1c6-3c9f8361284e" style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="17706927-c4d9-4e2c-ab9d-fa538f8cb4d5" style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="2cafd089-0824-4176-88ed-8229ab3a8a25" style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

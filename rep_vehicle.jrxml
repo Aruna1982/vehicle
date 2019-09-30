@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ce2e5c7e-e623-4a34-8bb9-ee8d3f3f8e6d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     vmast.`v_no` AS vmast_v_no,
+     vmast.`v_name` AS vmast_v_name,
+     vmast.`v_type` AS vmast_v_type,
+     vmast.`v_make` AS vmast_v_make,
+     vmast.`v_fuelType` AS vmast_v_fuelType,
+     vmast.`v_cost` AS vmast_v_cost,
+     vmast.`v_payload` AS vmast_v_payload,
+     vmast.`v_driver` AS vmast_v_driver,
+     vmast.`status` AS vmast_status
+FROM
+     `vmast` vmast]]>
+	</queryString>
+	<field name="vmast_v_no" class="java.lang.String"/>
+	<field name="vmast_v_name" class="java.lang.String"/>
+	<field name="vmast_v_type" class="java.lang.String"/>
+	<field name="vmast_v_make" class="java.lang.String"/>
+	<field name="vmast_v_fuelType" class="java.lang.String"/>
+	<field name="vmast_v_cost" class="java.lang.Float"/>
+	<field name="vmast_v_payload" class="java.lang.Integer"/>
+	<field name="vmast_v_driver" class="java.lang.String"/>
+	<field name="vmast_status" class="java.lang.String"/>
+	<group name="vmast_v_type">
+		<groupExpression><![CDATA[$F{vmast_v_type}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<frame>
+					<reportElement uuid="5fa99037-934d-4730-932c-240175e8625e" mode="Opaque" x="0" y="3" width="721" height="24" forecolor="#B89F7D" backcolor="#000000"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement uuid="9d740e58-5bf3-4a90-98bc-c93e47df988e" style="SubTitle" x="2" y="0" width="695" height="24" forecolor="#FFFFFF"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{vmast_v_type}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<rectangle>
+					<reportElement uuid="920ec6dc-8c33-4428-bd2a-133ee46b7c00" x="725" y="3" width="77" height="24" backcolor="#666666"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image>
+				<reportElement uuid="c1cd4988-0038-48e1-89ea-43d33fcfbb92" x="725" y="0" width="77" height="102"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement uuid="b940f729-621a-4720-ab56-99fd5118a563" mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000"/>
+				<staticText>
+					<reportElement uuid="07c88ca6-f7c8-470d-966e-73da3df1ddb4" style="Title" x="0" y="0" width="370" height="66"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="24" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Jayaratna Movers and Transport Ltd. Nugegoda.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a75362c1-667c-4834-a628-f60f620c38ed" style="SubTitle" x="370" y="37" width="316" height="29"/>
+					<textElement textAlignment="Right">
+						<font size="20" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Vehicle Details Report as at]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement uuid="ee743ea4-9672-4c22-895e-9e0d4e2e980f" mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="5c75a861-d4e0-4c41-86dd-9728ffe07ed9" x="553" y="12" width="144" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="196d981e-2b41-45e1-861e-e1896ac6df83" style="Column header" x="0" y="0" width="99" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Registered No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="11004a48-4577-422d-8033-b358df72c983" style="Column header" x="99" y="0" width="99" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Vehicle Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e1fb07fd-0577-4f69-87ae-86f19bf8d1e7" style="Column header" x="198" y="0" width="99" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Make]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3426cd2c-2e51-4396-897c-cc085ccea29b" style="Column header" x="297" y="0" width="99" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fuel Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dc0b0d71-4ece-4e3c-91da-fa76c9432143" style="Column header" x="396" y="0" width="99" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Value of Vehicle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f1c7fb63-fa0c-412e-842b-231c60eb582e" style="Column header" x="495" y="0" width="99" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Max Load]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a521a4a2-5011-493c-a4fb-0e7f22db466c" style="Column header" x="594" y="0" width="99" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Assigned Driver]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9b21c3dd-504c-4c69-a26a-758077f5604f" style="Column header" x="693" y="0" width="99" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement uuid="bc351aba-203c-4632-9eb4-b6f2da9dc6b9" style="Row" mode="Opaque" x="0" y="0" width="797" height="18"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="3ff3e6ac-ddcb-4229-a806-63773a482bd2" style="Detail" positionType="Float" x="0" y="0" width="99" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vmast_v_no}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="7e689e9f-057c-428e-a791-46d55941f903" style="Detail" positionType="Float" x="99" y="0" width="99" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vmast_v_name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="77b60b76-c414-4b36-9ec2-92477cbebf98" style="Detail" positionType="Float" x="198" y="0" width="99" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vmast_v_make}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="d22d2d50-b71c-418e-b951-8265c3d4e0ad" style="Detail" positionType="Float" x="297" y="0" width="99" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vmast_v_fuelType}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="e728fca6-4439-4b7e-be50-6d6fcfb4ed41" style="Detail" positionType="Float" x="396" y="0" width="99" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vmast_v_cost}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="119414a6-8910-4115-ab4d-d7e6dd7d576d" style="Detail" positionType="Float" x="495" y="0" width="99" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vmast_v_payload}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="1400fa2e-8078-4e03-83d9-8c7b562ada29" style="Detail" positionType="Float" x="594" y="0" width="99" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vmast_v_driver}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="e90bbe76-f6fb-4828-a95b-06bfcda75f16" style="Detail" positionType="Float" x="693" y="0" width="99" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vmast_status}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement uuid="4d82c69e-1a16-4781-bd77-9b4ae02af3a3" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="216ea18f-530a-47e8-911a-e769accb2569" mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="2ea6cc16-86f8-4cd1-b01a-8a8e47f10f69" style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="c88b52b2-c363-4c4f-809a-58f265017aea" style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="bfac94da-d76e-4ddc-adf3-cfdffcc9f97f" style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
